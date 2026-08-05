@@ -1,0 +1,82 @@
+{
+  "Medisafe": {
+    "name": "Medisafe Medication Management",
+    "bundle": "com.medisafe.medisafe",
+    "rating": 4.70869,
+    "screenshots": [
+      "/Users/stella/ai-pill-v5/research/screenshots/medisafe_1.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/medisafe_2.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/medisafe_3.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/medisafe_4.png"
+    ]
+  },
+  "MyTherapy": {
+    "name": "Pill Reminder MyTherapy",
+    "bundle": "eu.smartpatient.mytherapy",
+    "rating": 4.78106,
+    "screenshots": []
+  },
+  "CareZone": {
+    "name": "Hero: Medication Manager",
+    "bundle": "com.herohealth.heroconnect",
+    "rating": 4.70023,
+    "screenshots": [
+      "/Users/stella/ai-pill-v5/research/screenshots/carezone_1.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/carezone_2.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/carezone_3.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/carezone_4.png"
+    ]
+  },
+  "Round Health": {
+    "name": "Included Health",
+    "bundle": "com.grandroundshealth.grandrounds",
+    "rating": 4.93099,
+    "screenshots": []
+  },
+  "Oura": {
+    "name": "Oura",
+    "bundle": "com.ouraring.oura",
+    "rating": 4.86308,
+    "screenshots": []
+  },
+  "Streaks": {
+    "name": "Habit Tracker",
+    "bundle": "com.davetech.habit",
+    "rating": 4.79303,
+    "screenshots": []
+  },
+  "ChatGPT": {
+    "name": "ChatGPT",
+    "bundle": "com.openai.chat",
+    "rating": 4.83061,
+    "screenshots": []
+  },
+  "Perplexity": {
+    "name": "Perplexity - AI Search & Chat",
+    "bundle": "ai.perplexity.app",
+    "rating": 4.82442,
+    "screenshots": [
+      "/Users/stella/ai-pill-v5/research/screenshots/perplexity_1.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/perplexity_2.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/perplexity_3.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/perplexity_4.png"
+    ]
+  },
+  "Fantastical": {
+    "name": "Fantastical Calendar",
+    "bundle": "com.flexibits.fantastical2.iphone",
+    "rating": 4.1997,
+    "screenshots": []
+  },
+  "Headspace": {
+    "name": "Headspace: Sleep & Meditation",
+    "bundle": "com.getsomeheadspace.headspace",
+    "rating": 4.84239,
+    "screenshots": [
+      "/Users/stella/ai-pill-v5/research/screenshots/headspace_1.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/headspace_2.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/headspace_3.png",
+      "/Users/stella/ai-pill-v5/research/screenshots/headspace_4.png"
+    ]
+  }
+}
