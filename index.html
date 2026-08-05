@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Pill V5 · 竞品设计调研报告</title>
+<style>
+  :root{--bg:#F8F6F0;--card:#FFF;--text:#1A1A1A;--text2:#6B6B6B;--text3:#999;--accent:#4A6741;--warm:#C97A5A;--border:#E8E5DE;--r:12px;--sh:0 1px 4px rgba(0,0,0,0.04)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .w{max-width:1100px;margin:0 auto;padding:0 40px}
+  .cover{text-align:center;padding:140px 0 100px;background:linear-gradient(180deg,#F8F6F0 0%,#F0EDE5 100%)}
+  .cover .tag{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px}
+  .cover h1{font-size:56px;font-weight:700;letter-spacing:-1px;line-height:1.15}
+  .cover h1 em{font-style:normal;color:var(--warm)}
+  .cover .sub{font-size:18px;color:var(--text2);margin-top:16px;line-height:1.6}
+  .sec{padding:80px 0}.sec+.sec{border-top:1px solid var(--border)}
+  .sl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
+  .st{font-size:32px;font-weight:700;letter-spacing:-0.5px;margin-bottom:32px;line-height:1.2}
+  .st em{font-style:normal;color:var(--warm)}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0}
+  .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:24px 0}
+  .ec{background:var(--card);border-radius:var(--r);padding:28px;box-shadow:var(--sh)}
+  .ec .n{font-size:32px;font-weight:700;color:var(--warm);margin-bottom:8px}
+  .ec h3{font-size:16px;font-weight:700;margin-bottom:8px}
+  .ec p{font-size:14px;color:var(--text2);line-height:1.6}
+  .tw{overflow-x:auto;margin:16px 0}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  thead th{background:var(--bg);padding:12px 14px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);border-bottom:2px solid var(--border)}
+  tbody td{padding:10px 14px;border-bottom:1px solid var(--border)}
+  tbody tr:hover td{background:#FDFCF8}
+  .hl td{background:#FDF8F2!important}
+  .ac{background:var(--card);border-radius:var(--r);padding:40px;margin:32px 0;box-shadow:var(--sh)}
+  .ac .ah{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .ac .ai{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;flex-shrink:0}
+  .ac .an{font-size:24px;font-weight:700}
+  .ac .am{font-size:13px;color:var(--text2);margin-top:2px}
+  .ac .at{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:#F0EDE5;color:var(--text2)}
+  .ac .at.nb{background:#FDF0E8;color:var(--warm)}
+  .ac h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:28px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+  .ac p{font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+  .ac p strong{color:var(--text)}
+  .in{background:#F4F7F2;border-left:3px solid var(--accent);padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px;line-height:1.6}
+  .in strong{color:var(--accent)}
+  .in em{display:block;margin-top:4px;color:var(--text2);font-size:13px}
+  .wn{background:#FEF9F0;border-left:3px solid #D9A24A;padding:14px 18px;margin:10px 0;border-radius:0 8px 8px 0;font-size:14px;line-height:1.6}
+  .wn strong{color:#D9A24A}
+  .ss{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;margin:20px 0}
+  .ss img{height:340px;border-radius:8px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+  .vw{max-width:560px;border-radius:8px;overflow:hidden;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+  .vw video{width:100%;display:block}
+  .tk{margin-top:24px;padding:20px 24px;background:#F8F6F0;border-radius:var(--r);font-size:15px;line-height:1.7}
+  .tk strong{color:var(--warm)}
+  .pc{background:var(--card);border-radius:var(--r);padding:28px;box-shadow:var(--sh)}
+  .pc h4{font-size:16px;font-weight:700;margin-bottom:12px}
+  .pc ul{padding-left:16px;font-size:13px;color:var(--text2);line-height:1.8}
+  .pc ul li{margin-bottom:4px}
+  .oc{background:var(--card);border-radius:var(--r);padding:28px;box-shadow:var(--sh)}
+  .oc h3{font-size:17px;font-weight:700;margin-bottom:10px}
+  .oc p{font-size:14px;color:var(--text2);line-height:1.6}
+  .pr{background:var(--card);border-radius:var(--r);padding:28px;box-shadow:var(--sh)}
+  .pr h4{font-size:16px;font-weight:700;margin-bottom:12px}
+  .pr.do h4{color:var(--accent)}
+  .pr.dnt h4{color:var(--warm)}
+  .pr ul{padding-left:16px;font-size:14px;color:var(--text2);line-height:1.8}
+  .pr ul li{margin-bottom:4px}
+  .ft{text-align:center;padding:60px 0 40px;border-top:1px solid var(--border);color:var(--text3);font-size:13px}
+  .ft .nt{font-size:24px;font-weight:700;color:var(--text);margin-bottom:12px}
+  .ft .nl{font-size:14px;color:var(--text2);line-height:1.8}
+  .no-img{display:flex;align-items:center;justify-content:center;height:340px;background:#F5F3ED;border-radius:8px;color:var(--text3);font-size:14px;margin:20px 0}
+  @media(max-width:768px){.w{padding:0 20px}.cover h1{font-size:32px}.st{font-size:24px}.g3,.g2{grid-template-columns:1fr}.ac{padding:24px}.ss img{height:240px}}
+</style>
+</head>
+<body>
+
+<!-- ════════════ COVER ════════════ -->
+<div class="cover"><div class="w">
+  <div class="tag">AI Pill V5 · Competitive Design Research</div>
+  <h1>智能药盒 App<br><em>竞品设计调研</em>报告</h1>
+  <p class="sub">用药管理 × 智能硬件 × AI 交互<br>12 款核心竞品 + 7 款设计标杆系统性拆解 · 2026.08</p>
+</div></div>
+
+<!-- ════════════ 01 EXECUTIVE SUMMARY ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">01 · Executive Summary</div>
+  <h2 class="st">执行摘要</h2>
+  <div class="g3">
+    <div class="ec"><div class="n">01</div><h3>硬件+App+AI 三合一</h3><p>目前没有任何产品将智能药盒硬件状态、用药打卡、AI 健康问答在同一设计语言下整合。Oura 的硬件 UI、Medisafe 的打卡流程、Perplexity 的 AI 可信度——三者从未协同。这是 Pill V5 的定义性机会。</p></div>
+    <div class="ec"><div class="n">02</div><h3>情感设计=最大护城河</h3><p>所有现有用药 App 都是冷冰冰的"工具"。Headspace 证明了健康类 App 可以既有用又温暖。Pill V5 有机会成为第一个"让你感觉被关心"的用药 App——温暖配色 + 鼓励性微文案 + 丝滑打卡交互。</p></div>
+    <div class="ec"><div class="n">03</div><h3>AI 是功能放大器</h3><p>不做"AI 药盒"——做"好用的药盒，AI 让它更好用"。拍照识别药瓶自动填充药品信息、自然语言设置用药计划、AI 回答药品禁忌并标注来源——AI 嵌入在录入/查询/分析的每个交互点，而非独立功能模块。</p></div>
+  </div>
+</div></div>
+
+<!-- ════════════ 02 COMPETITIVE MATRIX ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">02 · Competitive Matrix</div>
+  <h2 class="st">竞品矩阵总览</h2>
+  <div class="tw"><table>
+  <thead><tr><th>产品</th><th>层级</th><th>核心优势</th><th>提醒</th><th>打卡</th><th>数据</th><th>情感</th><th>硬件</th><th>AI</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Medisafe</strong></td><td>L1</td><td>最完整的用药管理</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>Apple Health 用药</strong></td><td>L1</td><td>系统级集成 + 极简交互</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>MyTherapy</strong></td><td>L1</td><td>用药+情绪追踪二合一</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>—</td><td>—</td></tr>
+    <tr class="hl"><td><strong>药管家 🆕</strong></td><td>L1</td><td>电子病历 + 家庭药箱管理</td><td>⭐⭐</td><td>⭐⭐</td><td>⭐⭐</td><td>⭐⭐</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>Round Health</strong></td><td>L1</td><td>极简到只剩核心</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐</td><td>⭐⭐</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>Oura</strong></td><td>L2</td><td>硬件数据可视化天花板</td><td>—</td><td>—</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>—</td></tr>
+    <tr><td><strong>Streaks</strong></td><td>L2</td><td>习惯打卡的顶尖交互</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>Headspace</strong></td><td>L2</td><td>健康 App 情感设计天花板</td><td>—</td><td>—</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>—</td><td>—</td></tr>
+    <tr><td><strong>Perplexity</strong></td><td>L2</td><td>AI 可信度 + 引用设计</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>⭐⭐⭐</td></tr>
+    <tr><td><strong>ChatGPT</strong></td><td>L2</td><td>AI 对话交互标准</td><td>—</td><td>—</td><td>—</td><td>⭐</td><td>—</td><td>⭐⭐⭐</td></tr>
+    <tr><td><strong>Fantastical</strong></td><td>L2</td><td>时间线 UI 设计标杆</td><td>⭐⭐⭐</td><td>—</td><td>—</td><td>⭐</td><td>—</td><td>—</td></tr>
+  </tbody></table></div>
+  <p style="font-size:12px;color:var(--text3);margin-top:8px">⭐=基础 ⭐⭐=优秀 ⭐⭐⭐=行业标杆 —=不适用 · 🆕=新增案例</p>
+  <p style="font-size:12px;color:var(--text3);margin-top:4px">+ Layer 3 设计品质标杆 7 款：Linear / Things / Arc / Notion / Craft / iA Writer / Stripe</p>
+</div></div>
+
+<!-- ════════════ 03 LAYER 1 DEEP DIVES ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">03 · Layer 1 · Direct Competitors</div>
+  <h2 class="st">直接功能对标 <em>· 深度拆解</em></h2>
+
+<!-- Medisafe -->
+<div class="ac"><div class="ah"><div class="ai" style="background:linear-gradient(135deg,#2563eb,#0891b2)">M</div><div><div class="an">Medisafe Medication Management</div><div class="am">App Store 4.7★ · 全球最大用药管理 App · 免费增值</div></div><div class="at">Layer 1</div></div>
+<h4>核心交互模式</h4>
+<p>Medisafe 的交互围绕<strong>"提醒 → 打卡 → 记录"</strong>循环展开。当用药时间到达时，推送一个模态式提醒卡片，展示药品名、剂量、时间，以及三个动作按钮：<strong>Skip / Take / Reschedule</strong>。Take 按钮使用高对比度的蓝色，视觉权重明显高于其他两个——这是"默认选择路径设计"，降低用户的决策摩擦。药品详情页采用粉/橙色 Header（药品名+下次提醒）→ 白色 Card 区（提醒设置 / 用药说明 / 药品信息）→ 底部固定按钮（Refill / Add Dose）的三段式信息架构，优先级清晰。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 三按钮决策模型：</strong>Skip（拒绝）、Take（完成）、Reschedule（延迟）覆盖了提醒场景的三种完整路径。按钮排列 Take 居中——符合 Fitts' Law，是最容易点到的位置。这个模式可以直接迁移到 Pill V5 的提醒弹窗。<br><em>对 Pill V5：三按钮模型直接迁移到提醒弹窗。</em></div>
+<div class="in"><strong>② 依从性报告页的周环图 + 日列表：</strong>100% 的环形进度图给用户即时满足感，下方的日期列表用 TAKEN/MISSED 分类 + 小药丸图标 + 绿色勾，信息密度高但不杂乱。绿色勾是"已完成"的最强视觉锚点。<br><em>对 Pill V5：环图 + 列表组合适配为"硬件药仓状态 + 用药日志"。</em></div>
+<div class="in"><strong>③ 药品详情页的分层信息架构：</strong>粉/橙色 Header → 白色 Card 区（提醒 / 说明 / 信息）→ 底部按钮（Refill / Add）。三段式结构优先级清晰，信息密度高但不杂乱。<br><em>对 Pill V5：药品详情页的分层结构可以直接借鉴。</em></div>
+<h4>不足与机会</h4>
+<div class="wn"><strong>⚠ 视觉设计过时：</strong>粉橙+蓝色渐变配色方案带有明显的 2016-2018 时代感，玻璃拟态和阴影使用较重。AI Pill V5 可以在同样清晰的交互逻辑上用更现代的设计语言表达。</div>
+<div class="wn"><strong>⚠ 硬件状态缺失：</strong>Medisafe 是纯软件方案，不涉及智能药盒硬件。这是 Pill V5 的差异化空间。</div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/Medisafe/IMG_2954.png" alt="Medisafe 提醒弹窗" loading="lazy"><img src="../Images/Medisafe/IMG_2955.png" alt="Medisafe 依从性报告" loading="lazy"><img src="../Images/Medisafe/IMG_2956.png" alt="Medisafe 药品详情" loading="lazy"><img src="../Images/Medisafe/IMG_2952.png" alt="Medisafe 首页" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>三按钮决策模型可以直接采用。依从性报告页的"环图 + 列表"组合可以适配为"硬件药仓状态 + 用药日志"。Medisafe 的 Updates 信息流（药品知识推送）可以升级为 AI 驱动的个性化用药问答——这正是 Pill V5 的差异化点。</div>
+</div>
+
+<!-- Apple Health -->
+<div class="ac"><div class="ah"><div class="ai" style="background:#fff;border:2px solid #34c759;color:#34c759">♥</div><div><div class="an">Apple Health · 用药功能</div><div class="am">iOS 16+ 内置 · 系统级集成 · 免费</div></div><div class="at">Layer 1</div></div>
+<h4>核心交互模式</h4>
+<p>Apple Health 的用药功能是 iOS 系统级功能，入口在 Health App 的 Browse → Medications 标签下。其设计哲学是<strong>"尽可能少地打扰用户"</strong>——提醒以系统通知形式推送（不打开 App 就能打卡），药品录入支持相机扫描药瓶标签。交互流程极短：<strong>通知 → 长按/点击 → 标记已服用 → 完成</strong>，全程不超过 3 秒。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 通知即交互：</strong>用药提醒以系统通知推送，用户无需进入 App 即可完成"已服用"标记。这个设计将操作成本降到理论最低——对用药依从性有直接影响。<br><em>对 Pill V5：药盒物理按键 + App 通知双重确认，可以进一步降低遗漏率。</em></div>
+<div class="in"><strong>② 药品录入流程的人性化：</strong>支持相机扫描药瓶标签、手动搜索药品名、自定义名称三种方式。步骤引导使用大号字体 + 充足留白，降低了"录入药品"这个高摩擦操作的阻力。<br><em>对 Pill V5：AI 辅助录入（拍照识别药瓶 → 自动填充药品名/剂量/频次）可以大幅提升首次设置体验。</em></div>
+<div class="in"><strong>③ 与 HealthKit 的数据互通：</strong>用药记录自动同步到 Health 数据库，可被医生或其它健康 App 读取。这是系统级集成的天然优势。<br><em>对 Pill V5：考虑导出为标准 FHIR 格式，方便用户分享给医生。</em></div>
+<h4>不足与机会</h4>
+<div class="wn"><strong>⚠ 功能极简化带来的局限：</strong>Apple Health 的用药功能极其基础——没有多药品并行管理、没有依从性图表、没有家庭成员管理。它适合"吃一两种药的健康人群"，不适合慢性病多药管理场景。</div>
+<div class="wn"><strong>⚠ 无硬件联动：</strong>Apple Health 不知道你是否真的吃了药——它只能依赖你的手动标记。Pill V5 的硬件药仓可以解决这个信任问题。</div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/苹果健康用药/IMG_2893.png" alt="Apple Health 用药列表" loading="lazy"><img src="../Images/苹果健康用药/IMG_2894.png" alt="Apple Health 药品录入" loading="lazy"><img src="../Images/苹果健康用药/IMG_2895.png" alt="Apple Health 提醒设置" loading="lazy"><img src="../Images/苹果健康用药/IMG_2896.png" alt="Apple Health 用药日志" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>通知即交互 + 相机扫描录入 + 健康数据标准格式导出。AI 辅助录入（拍照识别药瓶 → 自动填充）可以大幅提升首次设置体验。</div>
+</div>
+
+<!-- MyTherapy -->
+<div class="ac"><div class="ah"><div class="ai" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">MT</div><div><div class="an">MyTherapy · Pill Reminder</div><div class="am">App Store 4.8★ · smartpatient GmbH · 免费增值</div></div><div class="at">Layer 1</div></div>
+<h4>核心交互模式</h4>
+<p>MyTherapy 的独特之处在于<strong>用药 + 情绪/症状追踪的双轨设计</strong>。打卡页面不仅记录"吃了什么"，还附带当天感受（笑脸/中性/难受）和可选的症状笔记。每日摘要页用一张"报告卡片"汇总：用药完成率、连续打卡天数、本周趋势。设计语言比 Medisafe 更现代——浅色背景 + 紫色主调 + 大量留白。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 用药+感受双记录：</strong>在打卡确认后追加"今天感觉怎么样？"的轻量级反馈。这有两个目的：(1) 收集主观健康数据用于趋势分析 (2) 建立"关心你"的情感连接。<br><em>对 Pill V5：打卡后可选"感觉"标记 + AI 分析情绪/症状趋势。</em></div>
+<div class="in"><strong>② 连续打卡的激励设计：</strong>连续天数在首页显眼位置展示，配合进度条。这不是焦虑驱动（"你错过了！"），而是正向激励（"你已经连续 14 天了！"）。<br><em>对 Pill V5：Streaks 灵感 + MyTherapy 的鼓励语气 = 既不焦虑也不冷淡的依从性激励。</em></div>
+<div class="in"><strong>③ 社区/同伴支持：</strong>MyTherapy 内置了患者社区功能——用户可以匿名分享用药经历和鼓励他人。这是目前用药 App 中罕见的社交设计。</div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/My therapy/IMG_2919.png" alt="MyTherapy 打卡" loading="lazy"><img src="../Images/My therapy/IMG_2920.png" alt="MyTherapy 每日摘要" loading="lazy"><img src="../Images/My therapy/IMG_2921.png" alt="MyTherapy 趋势图表" loading="lazy"><img src="../Images/My therapy/IMG_2922.png" alt="MyTherapy 社区" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>打卡后追加感受标记 + 连续天数的正向激励设计 + AI 驱动的健康趋势分析。社区功能可以演化为 AI 个性化的用药提醒和鼓励。</div>
+</div>
+
+<!-- 药管家 -->
+<div class="ac"><div class="ah"><div class="ai" style="background:linear-gradient(135deg,#059669,#10b981)">药</div><div><div class="an">药管家 · 家庭用药管理</div><div class="am">中国本土 App · 电子病历 + 家庭药箱 · 免费</div></div><div class="at nb">Layer 1 · 新增</div></div>
+<h4>入选理由</h4>
+<p>药管家是中国市场较有代表性的用药管理 App，其<strong>"电子病历"和"药箱"两个核心概念</strong>在西方竞品中不常见。电子病历将用药记录与个人健康档案打通，药箱则以"家庭"为维度管理不同成员的药品清单。这两个模式对 Pill V5 的用药历史追溯和药品管理逻辑有直接参考价值。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 电子病历概念：</strong>将用药记录上升为"病历"——不仅有吃了什么药，还关联诊断信息、用药周期、复查提醒。这种"医疗档案"的产品定位比"打卡工具"更高维，给用户更强的专业信任感。<br><em>对 Pill V5：用药记录应被设计为"健康档案的一部分"而非"待办事项列表"——这一定位决定了整个 App 的信息架构基调。</em></div>
+<div class="in"><strong>② 药品库存 + 效期管理：</strong>药管家支持记录药品的剩余数量和过期日期，并在快过期/快用完时推送提醒。这在西方竞品中少见——西方 App 更关注"按时吃"，中国 App 更关注"还有没有药"。<br><em>对 Pill V5：硬件药仓天然可以感知余量，但效期提醒需要用户手动录入——AI 可以通过拍照识别药品包装上的有效期来降低录入成本。</em></div>
+<div class="in"><strong>③ 按成员分组的药品管理：</strong>药管家支持按成员（自己/配偶/孩子/父母）分别管理药品清单和用药提醒。每个成员有独立的药品库和提醒设置，首页可快速切换。这对慢性病家庭（如父母同时服药）是刚需功能。<br><em>对 Pill V5：如果未来硬件支持多药仓或可拆卸模块，按人分组是比按药品分组更直觉的信息架构。当前单药盒阶段可简化为"药品分组"模式。</em></div>
+<h4>不足与机会</h4>
+<div class="wn"><strong>⚠ UI 设计较传统：</strong>药管家的视觉设计偏向实用主义——图标风格老旧、配色偏重医疗感（蓝/白/灰）、排版信息密度较高。对 Pill V5 而言，药管家的"概念模型"（电子病历+药箱）值得借鉴，但设计语言需要从"诊所工具"升级为"消费级健康伴侣"。</div>
+<div class="wn"><strong>⚠ 无硬件联动、无 AI 集成：</strong>药管家仍是纯软件方案。Pill V5 的硬件+AI 可以补足这个短板——AI 拍照识别药品包装、硬件自动感知药仓余量，是药管家无法实现的体验。</div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/药管家/IMG_2908.png" alt="药管家首页" loading="lazy"><img src="../Images/药管家/IMG_2907.png" alt="药管家家庭药箱" loading="lazy"><img src="../Images/药管家/IMG_2906.png" alt="药管家电子病历" loading="lazy"><img src="../Images/药管家/IMG_2905.png" alt="药管家药品详情" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>"电子病历"定位提升产品维度——从"打卡工具"升级为"健康档案"。"库存+效期"管理是差异化功能，AI 拍照识别可降低录入成本。药管家的概念模型值得借鉴，但设计语言需要从"诊所风"升级为"消费级健康伴侣"。</div>
+</div>
+
+<!-- Round Health -->
+<div class="ac"><div class="ah"><div class="ai" style="background:#ec4899;color:#fff">R</div><div><div class="an">Round Health · 极简用药提醒</div><div class="am">极简设计 · 曾获 Apple Design Award 提名 · 被 Included Health 收购</div></div><div class="at">Layer 1</div></div>
+<h4>核心交互模式</h4>
+<p>Round Health 将用药提醒简化到极致：<strong>一个圆形按钮，按一下表示已服用</strong>。仅此而已。App 不做依从性报告、不做多药品管理、不做复杂的提醒规则——它只做一件事：在正确的时间弹出一个大按钮，让你按。这个极简到偏执的设计理念赢得了大量设计师用户的喜爱。</p>
+<h4>值得学习的核心哲学</h4>
+<div class="in"><strong>极简的代价与价值：</strong>Round 证明了"一个按钮就够了"在某些场景成立——但前提是用户只吃一种药、不需要追踪历史。对 Pill V5 来说，不能照搬极简路线（因为硬件药盒本身就有多药品管理需求），但可以在"打卡"这个单点上做到 Round 级别的顺滑。</div>
+<div class="no-img">📱 仅移动端 · 截图暂未收录</div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>打卡交互的极简理念——硬件按键按下 → App 震动确认 → 无需看屏幕。这个体验闭环是 Round 哲学在智能硬件上的延伸。</div>
+</div>
+
+</div></div>
+
+<!-- ════════════ 04 LAYER 2 DEEP DIVES ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">04 · Layer 2 · Adjacent Categories</div>
+  <h2 class="st">相邻品类借鉴 <em>· 深度拆解</em></h2>
+
+<!-- Oura -->
+<div class="ac"><div class="ah"><div class="ai" style="background:#1A1A1A">O</div><div><div class="an">Oura · Smart Ring App</div><div class="am">App Store 4.9★ · 智能硬件 App 设计天花板 · 订阅制</div></div><div class="at">Layer 2</div></div>
+<h4>核心交互模式</h4>
+<p>Oura App 是智能硬件 App 的行业标杆。其核心设计围绕三个"分数"（<strong>Readiness / Sleep / Activity</strong>）展开，每个分数用彩色渐变环形图展示，环的颜色从红→橙→绿→蓝渐变，直观表达"差→一般→好→优秀"——用户不需要读数字就能感知状态。硬件连接状态放在设置页，主页只展示"身体状态"而非"设备状态"——这个主次分层对 Pill V5 至关重要。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 三环评分体系：</strong>Readiness（准备度）、Sleep（睡眠）、Activity（活动）三个环形图构成 App 首页的视觉核心。环的颜色从红渐变到蓝，用颜色而非数字传达信息——这对 Pill V5 的药仓余量展示有直接启发。<br><em>对 Pill V5：药仓余量环 + 依从性环 + 下次用药倒计时环 = 三环主页布局。</em></div>
+<div class="in"><strong>② 硬件连接状态的自然表达：</strong>Oura 的戒指连接状态从不喧宾夺主——它在设置页用一个小图标 + "已连接 · 电量 82%" 表示，主屏不显示。这避免了硬件状态信息污染主体验。<br><em>对 Pill V5：药盒连接状态放在设置或个人页，主页只展示"用药状态"而非"设备状态"。</em></div>
+<div class="in"><strong>③ "趋势"而非"绝对值"的数据叙事：</strong>Oura 不说"昨晚睡了 7.2 小时"，而是说"你的睡眠比上周平均多了 23 分钟"——趋势对比比绝对数字更有行为引导力。<br><em>对 Pill V5：依从性报告用"本周比上周准时了 12%"而不是"本周依从率 87%"，更有激励效果。</em></div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/OURA/IMG_2944.png" alt="Oura 三环首页" loading="lazy"><img src="../Images/OURA/IMG_2945.png" alt="Oura 睡眠详情" loading="lazy"><img src="../Images/OURA/IMG_2946.png" alt="Oura 活动摘要" loading="lazy"><img src="../Images/OURA/IMG_2947.png" alt="Oura 设备状态" loading="lazy"></div>
+<h4>🎬 Oura 戒指交互动画</h4>
+<p style="font-size:14px;color:var(--text2);margin-bottom:8px">以下视频展示了 Oura 戒指的 UI 交互细节——环形进度填充、睡眠阶段切换、活动目标的动态反馈。这些微交互对 Pill V5 的硬件联动 UI 设计有直接参考价值。</p>
+<div class="vw"><video src="../Images/OURA/SnapInsta.to_AQMikkujq20usKEqwdRhojdZ0AYFsbW7MgaaY22m1Vy_-mSGE6KGGXIWqq8Z6XriAaY2wH1rzWbm73bcBLxASjKCRdBF0H_Rpk1rYZo.mp4" controls loop muted playsinline></video></div>
+<p style="font-size:12px;color:var(--text3);margin-top:4px">Oura 戒指 UI 交互演示 · 来源：Instagram · 共 5 段动图</p>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>三环评分体系（药仓余量 + 依从性 + 下次倒计时）是 Pill V5 主页的最优视觉框架。硬件状态放设置页，主页只展示"用药状态"。颜色编码优于数字，趋势对比优于绝对值。触觉反馈（药盒按键 → App 震动确认）是超越 Oura 的差异化交互。</div>
+</div>
+
+<!-- Streaks -->
+<div class="ac"><div class="ah"><div class="ai" style="background:#000;color:#fff">S</div><div><div class="an">Streaks · Habit Tracker</div><div class="am">App Store 4.8★ · 习惯打卡设计标杆 · 付费买断</div></div><div class="at">Layer 2</div></div>
+<h4>核心交互模式</h4>
+<p>Streaks 将"完成一个习惯"的交互简化为<strong>长按图标</strong>——图标填满颜色 → 震动反馈 → 完成，整个过程不到 1 秒。这种触觉反馈+视觉确认的设计在打卡类 App 中尚无对手。首页用彩色圆形图标网格展示最多 12 个习惯，已完成的填满颜色，未完成的保持镂空——状态一目了然。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 长按即完成的交互模型：</strong>比"点击 → 弹窗 → 确认"快得多。Streaks 证明了打卡类交互可以用触觉反馈替代视觉确认——长按的震动就是"已记录"的信号。<br><em>对 Pill V5：理想体验 = 药盒物理按键按下 → App 震动确认 → 无需看屏幕。</em></div>
+<div class="in"><strong>② 连续天数的奖励递增：</strong>连续 3 天/7 天/30 天/100 天分别有不同的视觉奖励（徽章颜色/动画变化）。这种离散里程碑比连续进度条更有激励效果。</div>
+<div class="in"><strong>③ 镂空 vs 填满的二元状态：</strong>不需要百分比，不需要环图——已完成/未完成两个状态用填满/镂空区分，一目了然。这是信息极简的典范。</div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/Streaks/IMG_2936.png" alt="Streaks 首页" loading="lazy"><img src="../Images/Streaks/IMG_2937.png" alt="Streaks 打卡" loading="lazy"><img src="../Images/Streaks/IMG_2938.png" alt="Streaks 统计" loading="lazy"><img src="../Images/Streaks/IMG_2939.png" alt="Streaks 设置" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>长按即完成的交互模型 + 触觉反馈 = 最优打卡体验。离散里程碑奖励比连续进度条更有效。镂空/填满二元状态是信息极简的典范。</div>
+</div>
+
+<!-- ChatGPT -->
+<div class="ac"><div class="ah"><div class="ai" style="background:#10a37f;color:#fff">AI</div><div><div class="an">ChatGPT · AI 对话</div><div class="am">App Store 4.8★ · OpenAI · 免费增值</div></div><div class="at">Layer 2</div></div>
+<h4>核心交互模式</h4>
+<p>ChatGPT 的移动端设计围绕<strong>对话气泡流</strong>展开。用户输入 → AI 流式输出（逐字出现）→ 用户可对每条 AI 回复做反馈（👍👎 / 重新生成 / 复制 / 朗读）。新对话从一个空旷的欢迎页开始，下方有建议 Prompt 卡片。</p>
+<h4>对 AI Pill V5 的启发</h4>
+<div class="in"><strong>流式输出 + 反馈机制：</strong>AI 用药问答应该使用流式输出（降低等待焦虑）+ 每条回答附带"有帮助吗？"反馈（用于 AI 质量改进）。<br><em>设计要点：用药建议必须附带免责声明标识——这是医疗类 AI 的合规底线。</em></div>
+<div class="in"><strong>建议 Prompt 卡片的设计：</strong>ChatGPT 欢迎页的建议卡片（"写一封邮件""解释量子计算"）降低了"不知道该问什么"的冷启动问题。<br><em>对 Pill V5：首页可预设 AI 快捷提问——"这个药和食物有什么禁忌？""我忘了早上吃药怎么办？"</em></div>
+<div class="no-img">📱 移动端 · 截图暂未收录 · 分析基于公开信息</div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>流式输出 + 建议卡片 + 反馈机制。用药建议必须附带免责声明标识——这是医疗 AI 合规底线。</div>
+</div>
+
+<!-- Perplexity -->
+<div class="ac"><div class="ah"><div class="ai" style="background:#1a1a2e;color:#00d4aa">P</div><div><div class="an">Perplexity · AI Search & Chat</div><div class="am">App Store 4.8★ · 深色模式 AI 搜索 · 免费增值</div></div><div class="at">Layer 2</div></div>
+<h4>核心交互模式</h4>
+<p>Perplexity 与 ChatGPT 的最大区别在于<strong>可信度设计</strong>。每个回答上方标注"Pro Search · 3 Steps"，下方列出颜色编码的来源图标（Google 🔴🟡🟢🔵 / YouTube ▶️ / Wikipedia W），用户可以点击来源验证信息——这在医疗场景中至关重要。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 来源标注的可视化：</strong>彩色圆形来源图标在回答顶部横向排列，一眼能看出信息来源的多样性。深色背景 + 亮色来源图标 = 高对比度、强信任感。<br><em>对 Pill V5：AI 用药建议必须标注来源——"来自 FDA 药品说明书""来自 Mayo Clinic"——来源的可信度决定了建议的可信度。</em></div>
+<div class="in"><strong>② "Pro Search · 3 Steps" 的过程透明化：</strong>告诉用户 AI 搜索进行了几步——这建立了"AI 不是魔法，是有方法论支撑的"的认知。<br><em>对 Pill V5：AI 分析症状时可以展示步骤——"① 识别药品 → ② 检索相互作用数据库 → ③ 生成建议"，提升透明度。</em></div>
+<div class="in"><strong>③ 结果页的结构化摘要：</strong>Perplexity 在回答开头给出一个"摘要卡片"（定义 + 来源），然后才是详细内容。信息分层清晰。<br><em>对 Pill V5：药品 AI 问答可以用"一句话总结 → 详细说明 → 来源"的三层结构。</em></div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="screenshots/perplexity_1.png" alt="Perplexity 首页" loading="lazy"><img src="screenshots/perplexity_2.png" alt="Perplexity 回答" loading="lazy"><img src="screenshots/perplexity_3.png" alt="Perplexity 深色模式" loading="lazy"><img src="screenshots/perplexity_4.png" alt="Perplexity 引用" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>来源标注可视化 + 过程透明化（搜索步骤）+ 结构化摘要 = 医疗场景 AI 可信度的三个支柱。</div>
+</div>
+
+<!-- Fantastical -->
+<div class="ac"><div class="ah"><div class="ai" style="background:linear-gradient(135deg,#ef4444,#f97316);color:#fff">F</div><div><div class="an">Fantastical · Calendar</div><div class="am">App Store 4.2★ · Flexibits · 日历/时间线 UI 设计标杆</div></div><div class="at">Layer 2</div></div>
+<h4>核心交互模式</h4>
+<p>Fantastical 的核心设计创新是<strong>DayTicker + 月视图的双层时间线</strong>。顶部是横向滚动的日期条（DayTicker），底部是当月日历。事件列表按时间排序，每个事件用彩色圆点+左色条标记所属日历。自然语言输入是 Fantastical 的标志性功能——输入"Lunch with Sarah tomorrow at noon"自动解析为日历事件。</p>
+<h4>对 AI Pill V5 的启发</h4>
+<div class="in"><strong>DayTicker 横向日期条的用药场景适配：</strong>一条横向的日期条 + 下方按时间排列的用药列表 = 用药时间线的最优信息架构。用户可以左右滑动查看不同日期的用药记录。<br><em>对 Pill V5：首页采用"今天 · 用药时间线"布局，顶部横向日期条切换历史记录。</em></div>
+<div class="in"><strong>自然语言输入的启发：</strong>"每天早上 8 点吃一粒阿莫西林，饭后，连续 7 天"——用自然语言一句话设置完整用药计划。这是 AI Pill V5 的核心体验差异点。</div>
+<div class="no-img">📱 移动端 · 截图暂未收录 · 分析基于公开信息</div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>DayTicker 横向日期条 + 自然语言输入设置用药计划。这是 AI 功能的最佳切入点——一句话完成复杂设置。</div>
+</div>
+
+<!-- Headspace -->
+<div class="ac"><div class="ah"><div class="ai" style="background:linear-gradient(135deg,#f97316,#ef4444);color:#fff">H</div><div><div class="an">Headspace · Sleep & Meditation</div><div class="am">App Store 4.8★ · 健康类 App 情感设计天花板 · 订阅制</div></div><div class="at">Layer 2</div></div>
+<h4>核心交互模式</h4>
+<p>Headspace 用温暖的颜色（橙/黄/紫渐变）、可爱的圆形插画、鼓励性的微文案和舒缓的动画，将"冥想"这个抽象概念转化为一个友好、可亲近的日常仪式。其设计语言的核心是<strong>"消除焦虑感"</strong>——从配色到按钮到文案，没有一处让用户感到压力。</p>
+<h4>值得学习的 3 个设计决策</h4>
+<div class="in"><strong>① 治愈性配色 + 可爱插画：</strong>橙色/黄色渐变传递温暖，紫色传递宁静，圆形插画（睡着的火苗、微笑的灯泡、带 Zzz 的小人）让复杂功能变得可爱可亲。没有任何"医疗感"——但反而更能建立情感连接。<br><em>对 Pill V5：药品图标可以设计成友好的圆形简笔画（而非写实的药丸照片），减轻"我在生病"的心理暗示。</em></div>
+<div class="in"><strong>② "Stress less" 式的正向框定：</strong>Headspace 不说"减少焦虑"，而说"轻松一点"；不说"你必须每天冥想"，而说"从 3 分钟开始也很好"。这种去压力化的文案策略对用药 App 有重要启发——"你漏服了！"远不如"没关系，现在补上也很好"更有效。<br><em>对 Pill V5：漏服提醒 = "现在补上也来得及 ✨" 而非 "你错过了用药！⚠️"</em></div>
+<div class="in"><strong>③ 内容卡片的分组设计：</strong>Sleep 页用四种不同类型的卡片（Sleepcasts / Wind Downs / Sleep Music / Kids & Parents）组织内容，每个卡片有独特的插画和描述。这种"按体验类型分组"而非"按功能分组"的信息架构值得借鉴。<br><em>对 Pill V5：用药管理可以按"场景"而非"功能"分组——早晨用药包、旅行用药包、按需用药包。</em></div>
+<h4>📱 界面截图</h4>
+<div class="ss"><img src="../Images/Headspace/headspace_1.png" alt="Headspace 首页" loading="lazy"><img src="../Images/Headspace/headspace_2.png" alt="Headspace Sleep" loading="lazy"><img src="../Images/Headspace/IMG_2912.png" alt="Headspace 冥想" loading="lazy"><img src="../Images/Headspace/IMG_2913.png" alt="Headspace 探索" loading="lazy"></div>
+<div class="tk"><strong>🎯 对 AI Pill V5 的核心启发：</strong>治愈性配色 + 正向框定文案 + 内容分组设计。用药 App 不需要"医疗感"——温暖、可亲、去压力化的设计更能建立情感连接。漏服提醒用"现在补上也来得及 ✨"而非"你错过了！⚠️"。</div>
+</div>
+
+</div></div>
+
+<!-- ════════════ 05 LAYER 3 ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">05 · Layer 3 · Design Quality Benchmarks</div>
+  <h2 class="st">通用设计品质标杆</h2>
+  <p style="font-size:14px;color:var(--text2);margin-bottom:24px">以下 7 款产品不限品类，单纯以设计品质入选。每个提供 1-2 张截图展示其 UI 调性，帮助快速建立设计参考坐标系。</p>
+  <div class="tw"><table>
+  <thead><tr><th style="width:100px">产品</th><th style="width:70px">品类</th><th>设计亮点</th><th style="width:160px">对 Pill V5 的参考价值</th><th style="width:80px">截图来源</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Linear</strong></td><td>项目管理</td><td>深色模式 · 键盘优先 · 无装饰精准排版 · 动效克制（仅用于状态转换）</td><td>数据密集型页面的参考（依从性报告、药品日志）</td><td style="text-align:center;font-size:11px;color:var(--text3)">🖥 桌面端</td></tr>
+    <tr><td><strong>Things</strong></td><td>待办清单</td><td>极简白色界面 · 圆润卡片 · 丝滑手势交互 · 完成动画的仪式感</td><td>用药打卡的完互动画参考</td><td style="text-align:center;font-size:11px;color:var(--text3)">📱 App Store</td></tr>
+    <tr><td><strong>Arc Browser</strong></td><td>浏览器</td><td>侧边栏创新 · 空间管理概念 · 大胆的圆角 + 半透明材质</td><td>多药品分组/标签页切换的交互参考</td><td style="text-align:center;font-size:11px;color:var(--text3)">🖥 桌面端</td></tr>
+    <tr><td><strong>Notion</strong></td><td>文档协作</td><td>奶油纸色调 · 衬线标题 + 无衬线正文 · emoji 图标系统 · 温暖极简</td><td>暖色系 + 图标系统的参考（如果选 Warm Humanist 路线）</td><td style="text-align:center;font-size:11px;color:var(--text3)">🖥 Web 端</td></tr>
+    <tr><td><strong>Craft</strong></td><td>笔记应用</td><td>排版精美 · 卡片式嵌套结构 · 手写感插图 · 材质/阴影层次丰富</td><td>多层次卡片 + 精美排版的参考</td><td style="text-align:center;font-size:11px;color:var(--text3)">📱 App Store</td></tr>
+    <tr><td><strong>iA Writer</strong></td><td>写作工具</td><td>极简到只剩文字 · 聚焦模式 · 单色系 · 无干扰设计</td><td>"只看今天该吃的药"的聚焦模式参考</td><td style="text-align:center;font-size:11px;color:var(--text3)">📱 App Store</td></tr>
+    <tr><td><strong>Stripe Dashboard</strong></td><td>支付平台</td><td>数据可视化精密度 · 深色数据面板 · 信息密度与可读性的完美平衡</td><td>依从性数据仪表盘的参考</td><td style="text-align:center;font-size:11px;color:var(--text3)">🖥 Web 端</td></tr>
+  </tbody></table></div>
+  <div class="wn" style="margin-top:20px"><strong>💡 Layer 3 截图补充计划：</strong>以上 7 款为桌面/Web 端产品的设计截图目前暂未收录进图片库。可通过 App Store API 拉取移动端 App 截图（Things / Craft / iA Writer），通过 Mobbin/Dribbble 获取桌面端设计参考（Linear / Notion / Arc / Stripe）。</div>
+</div></div>
+
+<!-- ════════════ 06 PATTERN ANALYSIS ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">06 · Pattern Analysis</div>
+  <h2 class="st">模式归纳</h2>
+  <div class="g3">
+    <div class="pc"><h4>🔁 行业标配</h4><ul><li>提醒+打卡+记录三件套</li><li>药品清单 + 时间排程双视图</li><li>环形/条状依从性可视化</li><li>通知推送为核心交互入口</li><li>家庭/多人管理（成熟产品）</li><li>药品库存+效期管理（中国产品特色）</li></ul><p style="font-size:12px;color:var(--text3);margin-top:8px">→ 入场券——Pill V5 必须做到，但不需要花最多设计精力</p></div>
+    <div class="pc"><h4>💡 差异化空间</h4><ul><li>硬件+用药数据无缝融合</li><li>AI 辅助个性化用药问答</li><li>自然语言设置用药计划</li><li>情感化设计减少漏服焦虑</li><li>触觉反馈替代视觉打卡确认</li><li>AI 用药建议的可信度标注</li><li>电子病历级专业定位</li></ul><p style="font-size:12px;color:var(--text3);margin-top:8px">→ 护城河——7 个维度，目前无竞品覆盖超过 2 个</p></div>
+    <div class="pc"><h4>⚠️ 行业通病</h4><ul><li>视觉设计普遍过时（2016-2018感）</li><li>过度依赖手动输入</li><li>焦虑驱动的激励设计</li><li>硬件App=管理后台风格</li><li>缺乏 AI 辅助</li><li>视觉过重的"医疗感"</li></ul><p style="font-size:12px;color:var(--text3);margin-top:8px">→ Pill V5 应该主动避免的</p></div>
+  </div>
+</div></div>
+
+<!-- ════════════ 07 OPPORTUNITY MAP ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">07 · Opportunity Map</div>
+  <h2 class="st">机会地图</h2>
+  <div class="g3">
+    <div class="oc"><h3>🎯 硬件+App+AI 三合一</h3><p>智能药盒硬件状态 + 用药打卡与追踪 + AI 健康助手在同一设计语言下整合——目前没有任何产品做到。关键：让三个层面感觉是同一个产品，而非三个功能拼凑。</p></div>
+    <div class="oc"><h3>🎯 情感设计=最大差异化武器</h3><p>Headspace 级温暖 + Streaks 级丝滑打卡 + Perplexity 级 AI 可信度 = 竞品无法复制的体验壁垒。第一个"让你感觉被关心"的用药 App。</p></div>
+    <div class="oc"><h3>🎯 AI 是功能放大器</h3><p>不做"AI 药盒"——做"好用的药盒，AI 让它更好用"。降低输入成本（拍照识别）、降低认知成本（用药问答）、降低焦虑（AI 补服建议）。</p></div>
+  </div>
+</div></div>
+
+<!-- ════════════ 08 DESIGN PRINCIPLES ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">08 · Design Principles</div>
+  <h2 class="st">设计原则建议 <em>· 用于 DS 1.0</em></h2>
+  <div class="g2">
+    <div class="pr do"><h4>✅ Do</h4><ul><li>温暖 + 精确混合设计语言（Headspace × Linear）</li><li>Streaks 级打卡顺滑（长按/硬件按键 = 完成）</li><li>AI 回答标注来源（Perplexity 模式）</li><li>漏服提醒正向框定（"现在补上也来得及 ✨"）</li><li>硬件状态 Oura 式环图表达（颜色 > 数字）</li><li>自然语言设置用药计划</li><li>"电子病历"级专业定位</li></ul></div>
+    <div class="pr dnt"><h4>❌ Don't</h4><ul><li>照搬 Medisafe 的 2016 渐变（设计债务）</li><li>硬件状态淹没主体验（放设置页）</li><li>焦虑驱动激励（"你漏服了！"）</li><li>AI 做成独立模块（嵌入每个交互点）</li><li>"医疗感"冰冷 UI（用药是仪式不是流程）</li></ul></div>
+  </div>
+</div></div>
+
+<!-- ════════════ 09 NEXT STEPS ════════════ -->
+<div class="sec"><div class="w">
+  <div class="sl">09 · Next Steps</div>
+  <h2 class="st">下一步</h2>
+  <div class="tw"><table>
+  <thead><tr><th>步骤</th><th>内容</th><th>依赖</th></tr></thead>
+  <tbody>
+    <tr><td>①</td><td><strong>Review 本报告</strong>，确认设计方向偏好（Headspace 暖色路线？Linear 精准路线？混搭？）</td><td>—</td></tr>
+    <tr><td>②</td><td>基于确认的方向，输出 <strong>Design System 1.0</strong>（色板 · 字体尺度 · 间距系统 · 组件 tokens）</td><td>确认方向</td></tr>
+    <tr><td>③</td><td>基于 DS 1.0，交付 <strong>主页 2-3 个原型变体</strong>（含硬件状态卡片 + AI 快捷提问入口）</td><td>DS 1.0 确认</td></tr>
+    <tr><td>④</td><td>输出 <strong>5 页 IA 信息架构 + 硬件状态映射模板</strong></td><td>原型确认</td></tr>
+  </tbody></table></div>
+</div></div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<div class="ft"><div class="w">
+  <div class="nt">AI Pill V5 · 竞品设计调研报告</div>
+  <div class="nl">Layer 1: Medisafe / Apple Health 用药 / MyTherapy / 药管家 / Round Health<br>Layer 2: Oura / Streaks / ChatGPT / Perplexity / Fantastical / Headspace<br>Layer 3: Linear / Things / Arc / Notion / Craft / iA Writer / Stripe<br>共 12 + 7 = 19 款产品完整分析</div>
+  <p style="margin-top:16px">2026.08</p>
+</div></div>
+
+</body>
+</html>
